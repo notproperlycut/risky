@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/notproperlycut/risky#readme",
   "dependencies": {
-    "apollo-server-cloudflare": "^2.15.0",
+    "@nexus/schema": "^0.14.0",
     "graphql": "^15.1.0"
   }
 }

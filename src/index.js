@@ -1,30 +1,7 @@
-const { ApolloServer, gql } = require("apollo-server-cloudflare");
-const {
-  graphqlCloudflare,
-} = require('apollo-server-cloudflare/dist/cloudflareApollo')
+'use strict';
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => "Hello world!"
-  }
-};
-
-const server = new ApolloServer({
-  typeDefs,
-  introspection: true,
-  resolvers
-});
+import handleRequest from './handler'
 
 addEventListener('fetch', event => {
-  event.respondWith(
-    graphqlCloudflare(() => {
-      return server.createGraphQLServerOptions(event.request)
-    })(event.request)
-  )
+  event.respondWith(handleRequest(event.request))
 })
