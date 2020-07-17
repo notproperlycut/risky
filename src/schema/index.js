@@ -2,12 +2,7 @@
 
 import { makeSchema, queryField } from "@nexus/schema";
 
-const types = {
-  hello: queryField("hello", {
-    type: "String",
-    resolve: async () => "Hello nexus world"
-  })
-}
+import * as types from './types'
 
 const schema = makeSchema({
   types,
